@@ -34,3 +34,12 @@ def traer_equipo():
         return jsonify({"members": rows}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/info', methods=['GET'])
+def get_info():
+    metadata = {
+        "service": "backend-con-flask",
+        "version": "1.0.0",
+        "python_version": "3.12"
+    }
+    return jsonify(metadata), 200
