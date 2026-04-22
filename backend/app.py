@@ -11,6 +11,10 @@ DB_URL = os.environ.get('DATABASE_URL')
 def conexion_bd():
     return psycopg2.connect(DB_URL)
 
+@app.route('/api/health', methods=['GET'])
+def healthcheck():
+    return jsonify({"status": "healthy"}), 200
+
 @app.route('/api/team', methods=['GET'])
 def traer_equipo():
     try:
