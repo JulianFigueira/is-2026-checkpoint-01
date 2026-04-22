@@ -49,10 +49,16 @@ services:
     image: portainer/portainer-ce:latest
     ports:
       - "9000:9000"
-      - "9443:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+    networks:
+      - teamboard-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
 
 networks:
   teamboard-net:
