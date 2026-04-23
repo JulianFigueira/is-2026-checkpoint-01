@@ -1,1 +1,111 @@
 # is-2026-checkpoint-01
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Monitoreo con Portainer (Feature 05)
+
+Este proyecto incluye **Portainer** como herramienta gráfica para los contenedores Docker. Nos permite ver, monitorear y administrar los contenedores Docker en tiempo real sin usar la terminal. No requiere Dockerfile propio ya que se configura desde docker-compose.yml
+
+**¿Cómo acceder?**
+1. Levantar los servicios con `docker compose up -d`.
+2. Abrir el navegador e ingresar a: [http://localhost:9000](http://localhost:9000)
+3. La primera vez que ingresamos, Portainer nos pide crear un usuario y contraseña de administrador.
+4. Seleccionar el entorno local presionando en "Get Started" para ver los contenedores de TeamBoard.
+5. Seleccionamos local lo que nos lleva al Dashboard, ahi buscamos en el menú lateral la opción containers y allí veremos el estado de los contendores:
+
+![Lista de contenedores activos en Portainer](assets/portainer-containers.png)
