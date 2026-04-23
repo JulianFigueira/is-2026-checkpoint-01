@@ -2,22 +2,33 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "8080:8080"
     depends_on:
       - backend
     networks:
       - teamboard-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
 
   backend:
     build: ./backend
     ports:
-      - "4000:4000"
+      - "5000:5000"
     env_file:
       - .env
     depends_on:
-      - database
+       database:
+        condition: service_healthy
     networks:
       - teamboard-net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
       
 
   database:
