@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TeamBoard App</title>
+        <style>
+            :root {
+                --bg: #f4f7fb;
+                --card: #ffffff;
+                --border: #d9e2ec;
+                --text: #1f2933;
+                --muted: #52606d;
+                --ok-bg: #e3f9e5;
+                --ok-text: #137333;
+                --error-bg: #fde8e8;
+                --error-text: #b42318;
+                --head-bg: #eaf2ff;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 32px 20px;
+            }
+
+            .card {
+                background-color: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                padding: 24px;
+                box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+            }
+
+            h1 {
+                margin-top: 0;
+                margin-bottom: 8px;
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                margin-top: 0;
+                margin-bottom: 20px;
+                color: var(--muted);
+            }
+
+            .status {
+                display: inline-block;
+                margin-bottom: 20px;
+                padding: 10px 14px;
+                border-radius: 999px;
+                font-weight: bold;
+                font-size: 0.95rem;
+            }
+
+            .status.loading {
+                background-color: #eef2f7;
+                color: #486581;
+            }
+
+            .status.ok {
+                background-color: var(--ok-bg);
+                color: var(--ok-text);
+            }
+
+            .status.error {
+                background-color: var(--error-bg);
+                color: var(--error-text);
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 760px;
+            }
+
+            thead {
+                background-color: var(--head-bg);
+            }
+
+            th, td {
+                border: 1px solid var(--border);
+                padding: 12px 14px;
+                text-align: left;
+                vertical-align: middle;
+            }
+
+            th {
+                font-size: 0.95rem;
+            }
+
+            td {
+                font-size: 0.94rem;
+            }
+
+            .service-status {
+                display: inline-block;
+                padding: 6px 10px;
+                border-radius: 999px;
+                font-size: 0.85rem;
+                font-weight: bold;
+                background-color: #eef2f7;
+                color: #334e68;
+            }
+
+            .empty-message {
+                margin-top: 18px;
+                color: var(--muted);
+                font-style: italic;
+            }
+
+            footer {
+                margin-top: 18px;
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <section class="card">
+            <h1>TeamBoard App - Grupo [NOMBRE DEL GRUPO]</h1>
+            <p class="subtitle">
+                Integrantes del equipo, feature implementada y estado de cada servicio.
+            </p>
+
+            <div id="backend-status" class="status loading">
+                Verificando conexión con el backend...
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                <thead>
+                    <tr>
+                    <th>Nombre</th>
+                    <th>Legajo</th>
+                    <th>Feature</th>
+                    <th>Servicio</th>
+                    <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="team-body"></tbody>
+                </table>
+            </div>
+
+            <p id="empty-message" class="empty-message" hidden>
+                No hay integrantes para mostrar.
+            </p>
+
+            <footer>
+                Datos cargados dinámicamente desde el backend.
+            </footer>
+            </section>
+        </main>
+
+        <script src="app.js"></script>
+    </body>
+</html>
