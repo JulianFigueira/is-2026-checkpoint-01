@@ -10,6 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY --chown=appuser:appuser . .
 
-EXPOSE 4000
+EXPOSE 5000
 
 CMD ["python", "app.py"]
