@@ -1,17 +1,19 @@
 services:
   frontend:
+    container_name: teamboard-frontend
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "8080:8080"
     depends_on:
       - backend
     networks:
       - teamboard-net
 
   backend:
+    container_name: teamboard-backend
     build: ./backend
     ports:
-      - "4000:4000"
+      - "5000:5000"
     env_file:
       - .env
     depends_on:
@@ -49,6 +51,7 @@ services:
 
   portainer:
     image: portainer/portainer-ce:latest
+    container_name: teamboard-portainer
     ports:
       - "9000:9000"
     volumes:
