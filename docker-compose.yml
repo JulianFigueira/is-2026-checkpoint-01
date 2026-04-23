@@ -1,21 +1,23 @@
-version: "3.8"
-
 services:
   frontend:
     build: ./frontend
     ports:
-      - "${FRONT_PORT:-3000}:3000"
+      - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - teamboard-net
 
   backend:
     build: ./backend
     ports:
-      - "${BACK_PORT:-4000}:4000"
+      - "4000:4000"
     env_file:
       - .env
     depends_on:
       - database
+    networks:
+      - teamboard-net
       
 
   database:
